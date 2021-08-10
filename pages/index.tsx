@@ -14,33 +14,39 @@ const Home = () => {
       </Head>
       <section className={`${styles.hero}`}>
         <div className='bg-black bg-opacity-50 sm:p-36 py-36 px-2'>
-          <div className='grid md:grid-cols-3 gap-2 place-content-center h-48'>
-            <div className='hidden sm:block'></div>
-            <h1 className='text-3xl text-center max-w-sm text-white font-semibold'>
-              Digitally transforming the food supply chain.
-            </h1>
-            <div className='hidden sm:block'></div>
+          <div className='grid md:grid-cols-3 gap-3 place-content-center h-48'>
+            <div className='hidden md:block'></div>
+            <div className='flex justify-center'>
+              <h1 className='text-3xl text-center max-w-sm text-white font-semibold'>
+                Digitally transforming the food supply chain.
+              </h1>
+              <div className='hidden md:block'></div>
+            </div>
           </div>
           <div className='grid md:grid-cols-3 gap-2 place-content-center h-16'>
             <div className='hidden md:block'></div>
-            <div className='text-center max-w-sm'>
-              <Button
-                secondary
-                link='products'
-                text='Products and Services'
-                extraStyles='px-6 text-white'
-              />
+            <div className='flex justify-center'>
+              <div className='text-center max-w-sm'>
+                <Button
+                  secondary
+                  link='products'
+                  text='Products and Services'
+                  extraStyles='px-6 text-white'
+                />
+              </div>
             </div>
             <div className='hidden md:block'></div>
           </div>
           <div className='grid md:grid-cols-3 gap-2 place-content-center h-16'>
             <div className='hidden md:block'></div>
-            <div className='text-center max-w-sm'>
-              <Button
-                link='shop'
-                text='Start Ordering'
-                extraStyles='px-14 text-white'
-              />
+            <div className='flex justify-center'>
+              <div className='text-center max-w-sm'>
+                <Button
+                  link='shop'
+                  text='Start Ordering'
+                  extraStyles='px-14 text-white'
+                />
+              </div>
             </div>
             <div className='hidden md:block'></div>
           </div>

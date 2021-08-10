@@ -1,6 +1,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import logo from '../public/logo.svg';
+import facebookIcon from '../public/icons/facebook.svg'
+import instagramIcon from '../public/icons/instagram.svg'
+import twitterIcon from '../public/icons/twitter.svg'
 import styles from '../styles/Utilities.module.css';
 
 const Footer: React.FC = () => {
@@ -30,11 +33,12 @@ const Footer: React.FC = () => {
                   target='_blank'
                   rel='noopener noreferrer'
                 >
-                  <img
-                    className='pr-2 inline-block'
-                    src='/icons/facebook.svg'
-                    alt='Facebook'
-                  />
+                  <div className='pr-2 inline-block'>
+                    <Image
+                      src={facebookIcon}
+                      alt='Facebook'
+                    />
+                  </div>
                   Facebook
                 </a>
               </Link>
@@ -44,11 +48,12 @@ const Footer: React.FC = () => {
                   target='_blank'
                   rel='noopener noreferrer'
                 >
-                  <img
-                    className='pr-2 inline-block'
-                    src='/icons/twitter.svg'
-                    alt='Twitter'
-                  />
+                  <div className='pr-2 inline-block'>
+                    <Image
+                      src={twitterIcon}
+                      alt='Twitter'
+                    />
+                  </div>
                   Twitter
                 </a>
               </Link>
@@ -58,11 +63,12 @@ const Footer: React.FC = () => {
                   target='_blank'
                   rel='noopener noreferrer'
                 >
-                  <img
-                    className='pr-2 inline-block'
-                    src='/icons/instagram.svg'
-                    alt='Instagram'
-                  />
+                  <div className='pr-2 inline-block'>
+                    <Image
+                      src={instagramIcon}
+                      alt='Instagram'
+                    />
+                  </div>
                   Instagram
                 </a>
               </Link>
@@ -108,17 +114,20 @@ const Footer: React.FC = () => {
           <nav className='flex justify-center md:hidden'>
             <Link href='#'>
               <a className='p-2 m-1' target='_blank' rel='noopener noreferrer'>
-                <img src='/icons/facebook.svg' alt='Facebook' />
+                {/* <img src='/icons/facebook.svg' alt='Facebook' /> */}
+                <Image src={facebookIcon} alt='Facebook icon' />
               </a>
             </Link>
             <Link href='#'>
               <a className='p-2 m-1' target='_blank' rel='noopener noreferrer'>
-                <img src='/icons/instagram.svg' alt='Instagram' />
+                {/* <img src='/icons/instagram.svg' alt='Instagram' /> */}
+                <Image src={instagramIcon} alt='Instagram icon' />
               </a>
             </Link>
             <Link href='#'>
               <a className='p-2 m-1' target='_blank' rel='noopener noreferrer'>
-                <img src='/icons/twitter.svg' alt='Twitter' />
+                {/* <img src='/icons/twitter.svg' alt='Twitter' /> */}
+                <Image src={twitterIcon} alt='Twitter icon' />
               </a>
             </Link>
           </nav>

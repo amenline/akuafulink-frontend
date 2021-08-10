@@ -42,11 +42,11 @@ const Navbar: React.FC = () => {
       <nav className='bg-primary-300 items-center nav-bg'>
         <div className='container mx-auto flex px-3 justify-center'>
           <Link href='/'>
-            <a className='pt-3'>
-              <img src='/logo.svg' alt='Logo' className='hover:shadow-lg' />
-              {/* <div className='hover:shadow-md'>
+            <a className='pt-2'>
+              {/* <img src='/logo.svg' alt='Logo' className='hover:shadow-lg' /> */}
+              <div className='hover:shadow-lg'>
                 <Image src={logo} alt='Akuafulink logo' />
-              </div> */}
+              </div>
             </a>
           </Link>
           <div className='flex-1'></div>
