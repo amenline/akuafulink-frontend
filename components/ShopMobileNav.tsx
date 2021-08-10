@@ -29,7 +29,12 @@ const NavItem: React.FC<LinkProps> = ({ children, link, extraClasses }) => {
   );
 };
 
-const MobileNav: React.FC<Props> = ({ open, setOpen, textColor, bgColor }) => {
+const ShopMobileNav: React.FC<Props> = ({
+  open,
+  setOpen,
+  textColor,
+  bgColor,
+}) => {
   return (
     <div className={`${!open && 'hidden'}`}>
       <div
@@ -67,9 +72,27 @@ const MobileNav: React.FC<Props> = ({ open, setOpen, textColor, bgColor }) => {
           <ul className='mt-5'>
             <NavItem link='products'>PRODUCTS</NavItem>
             <NavItem link='about'>ABOUT</NavItem>
-            <NavItem link='contact'>CONTACT</NavItem>
-            <NavItem link='shop' extraClasses='bg-primary-400 color-white'>
-              SHOP
+            <NavItem link='cart'>
+              <span className='inline-block'>CART</span>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                width='24'
+                height='24'
+                viewBox='0 0 24 24'
+                fill='none'
+                stroke='#000'
+                strokeWidth='2'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                className='feather feather-shopping-cart inline-block'
+              >
+                <circle cx='9' cy='21' r='1'></circle>
+                <circle cx='20' cy='21' r='1'></circle>
+                <path d='M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6'></path>
+              </svg>
+            </NavItem>
+            <NavItem link='login' extraClasses='bg-primary-400 color-white'>
+              LOGIN
             </NavItem>
           </ul>
         </div>
@@ -83,4 +106,4 @@ const MobileNav: React.FC<Props> = ({ open, setOpen, textColor, bgColor }) => {
   );
 };
 
-export default MobileNav;
+export default ShopMobileNav;
