@@ -1,14 +1,7 @@
 // import Link from 'next/link';
+import { Vegetable } from '../Types/FoodProducts';
 
-interface Props {
-  name: string;
-  category: string[];
-  price: string;
-  quantity: string;
-  picture: string;
-}
-
-const FoodCard: React.FC<Props> = ({
+const FoodCard: React.FC<Vegetable> = ({
   name,
   category,
   price,
@@ -20,7 +13,7 @@ const FoodCard: React.FC<Props> = ({
       <img className='rounded-xl' src={picture} alt={name} />
       <div className='flex justify-between items-center'>
         <div>
-          <h1 className='mt-5 text-2xl font-semibold'>Aloe Cactus</h1>
+          <h1 className='mt-5 text-2xl font-semibold'>{name}</h1>
           <p className='mt-2'>GHC {price}</p>
         </div>
         <div>

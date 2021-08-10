@@ -3,22 +3,16 @@ import Head from 'next/head';
 import ShopLayout from '../../components/ShopLayout';
 import FoodCard from '../../components/FoodCard';
 import { shopVeges } from './foodList';
+import { Vegetable } from '../../Types/FoodProducts';
 
-interface Props {
-  name: string;
-  category: string[];
-  price: string;
-  quantity: string;
-  picture: string;
-}
-
-const Foods: React.FC<Props[]> = ({ data }) => {
-  const [veges, setVeges] = useState<Props[] | []>([]);
-  const [searchTerm, setSearchTerm] = useState('');
+const Foods: React.FC<{}> = (props) => {
+  const [veges, setVeges] = useState<Vegetable[] | []>([]);
+  // const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    setVeges(data);
+    setVeges(props.data);
   }, []);
+
   return (
     <ShopLayout>
       <Head>
@@ -41,7 +35,7 @@ const Foods: React.FC<Props[]> = ({ data }) => {
           </div>
         </div>
       </div>
-      <div className='grid lg:grid-cols-3 xl:grid-cols-4 gap-4 place-content-center'>
+      <div className='grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 place-content-center p-10'>
         {veges.length > 0
           ? veges.map((vege, x) => (
               <FoodCard
