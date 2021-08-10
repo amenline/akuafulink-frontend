@@ -1,0 +1,18 @@
+.hero {
+  background-image: url('../public/images/mango.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.about {
+  background-color: #eae7e7;
+}
+
+.order {
+}
+
+.basket {
+  /* width: 400px; */
+}
