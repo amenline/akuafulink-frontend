@@ -64,7 +64,7 @@ const Home = () => {
             <h2 className='text-3xl text-primary-400 font-semibold mb-5'>
               Giving value to the smallholder farmers
             </h2>
-            <p className='mb-10'>
+            <p className='mb-10 max-w-md'>
               Akuafulink aims to provide smallholder farmers with a ready market
               at fair market prices while supplying the needs of our customers
             </p>
