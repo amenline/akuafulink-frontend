@@ -2,18 +2,27 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import ShopLayout from '../../components/ShopLayout';
 import FoodCard from '../../components/FoodCard';
-import { shopVeges } from '../../components/foodList';
-import { Vegetable } from '../../Types/FoodProducts';
+import {
+  shopVeges,
+  shopFruits,
+  shopGrains,
+  shopHerbs,
+} from '../../components/foodList';
+import { WholeFoods } from '../../Types/FoodProducts';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 
 const Foods: React.FC<{}> = ({
   vegetables,
+  fruits,
+  grains,
+  herbs,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const [veges, setVeges] = useState<Vegetable[] | []>([]);
-  // const [searchTerm, setSearchTerm] = useState('');
+  const [foods, setFoods] = useState<WholeFoods[] | []>([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [category, setCategory] = useState('');
 
   useEffect(() => {
-    setVeges(vegetables);
+    setFoods(vegetables);
   }, [vegetables]);
 
   return (
@@ -39,15 +48,15 @@ const Foods: React.FC<{}> = ({
         </div>
       </div>
       <div className='grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 place-content-center p-10'>
-        {veges.length > 0
-          ? veges.map((vege, x) => (
+        {Foods.length > 0
+          ? foods.map((food, x) => (
               <FoodCard
                 key={x}
-                name={vege.name}
-                category={vege.category}
-                quantity={vege.quantity}
-                picture={vege.picture}
-                price={vege.price}
+                name={food.name}
+                category={food.category}
+                quantity={food.quantity}
+                picture={food.picture}
+                price={food.price}
               />
             ))
           : 'Loading'}
@@ -78,9 +87,12 @@ const Foods: React.FC<{}> = ({
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const vegetables: Vegetable[] = shopVeges;
+  const vegetables: WholeFoods[] = shopVeges;
+  const fruits: WholeFoods[] = shopFruits;
+  const grains: WholeFoods[] = shopGrains;
+  const herbs: WholeFoods[] = shopHerbs;
   return {
-    props: { vegetables },
+    props: { vegetables, fruits, grains, herbs },
   };
 };
 

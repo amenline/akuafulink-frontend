@@ -1,4 +1,4 @@
-export interface Vegetable {
+export interface WholeFoods {
   name: string;
   category: string[];
   price: string;

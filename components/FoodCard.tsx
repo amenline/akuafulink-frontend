@@ -1,7 +1,7 @@
 // import Link from 'next/link';
-import { Vegetable } from '../Types/FoodProducts';
+import { WholeFoods } from '../Types/FoodProducts';
 
-const FoodCard: React.FC<Vegetable> = ({
+const FoodCard: React.FC<WholeFoods> = ({
   name,
   category,
   price,
