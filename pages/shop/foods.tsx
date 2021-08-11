@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import ShopLayout from '../../components/ShopLayout';
 import FoodCard from '../../components/FoodCard';
-import { shopVeges } from './foodList';
+import { shopVeges } from '../../components/foodList';
 import { Vegetable } from '../../Types/FoodProducts';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 

@@ -1,4 +1,4 @@
-import { Vegetable } from '../../Types/FoodProducts';
+import { Vegetable } from '../Types/FoodProducts';
 
 export const shopVeges: Vegetable[] = [
   {
