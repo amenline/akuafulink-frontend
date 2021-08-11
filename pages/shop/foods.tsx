@@ -4,14 +4,17 @@ import ShopLayout from '../../components/ShopLayout';
 import FoodCard from '../../components/FoodCard';
 import { shopVeges } from './foodList';
 import { Vegetable } from '../../Types/FoodProducts';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
 
-const Foods: React.FC<{}> = (props) => {
+const Foods: React.FC<{}> = ({
+  vegetables,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [veges, setVeges] = useState<Vegetable[] | []>([]);
   // const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    setVeges(props.data);
-  }, []);
+    setVeges(vegetables);
+  }, [vegetables]);
 
   return (
     <ShopLayout>
@@ -74,11 +77,11 @@ const Foods: React.FC<{}> = (props) => {
   );
 };
 
-export async function getStaticProps() {
-  const data = shopVeges;
+export const getStaticProps: GetStaticProps = async () => {
+  const vegetables: Vegetable[] = shopVeges;
   return {
-    props: { data },
+    props: { vegetables },
   };
-}
+};
 
 export default Foods;
