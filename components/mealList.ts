@@ -15,7 +15,7 @@ export const shopMealBox: WholeFoods[] = [
     category: ['Meal box'],
     price: '50',
     quantity: 'Large size',
-    picture: '/images/meal-box-2.jpeg',
+    picture: '/images/meal-box-2.png',
   },
   {
     id: 'box3',
