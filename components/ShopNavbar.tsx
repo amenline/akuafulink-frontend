@@ -3,6 +3,7 @@ import Image from 'next/image';
 import logo from '../public/logo.svg';
 import Link from 'next/link';
 import ShopMobileNav from './ShopMobileNav';
+import { useCart } from '../context/CartContext';
 
 interface Props {
   link: string;
@@ -36,6 +37,7 @@ const ShopNavbar: React.FC = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const [textColor, setTextColor] = useState('#000');
   const [navBgColor, setNavBgColor] = useState('#eae7e7');
+  const { cart } = useCart();
 
   return (
     <>
@@ -87,7 +89,7 @@ const ShopNavbar: React.FC = () => {
             <NavItem link='about' textColor={textColor}>
               ABOUT
             </NavItem>
-            <NavItem link='contact' textColor={textColor}>
+            <NavItem link='cart' textColor={textColor}>
               <span className='inline-block'>CART</span>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
@@ -105,6 +107,11 @@ const ShopNavbar: React.FC = () => {
                 <circle cx='20' cy='21' r='1'></circle>
                 <path d='M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6'></path>
               </svg>
+              {cart.length > 0 ? (
+                <sup className='bg-primary-300 py-1 px-2 rounded-full text-xs text-white'>
+                  {cart.length}
+                </sup>
+              ) : null}
             </NavItem>
             <NavItem
               link='login'

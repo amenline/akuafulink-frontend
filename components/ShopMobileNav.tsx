@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import miniLogo from '../public/mini-logo.svg';
+import { useCart } from '../context/CartContext';
 
 interface LinkProps {
   link: string;
@@ -35,15 +36,16 @@ const ShopMobileNav: React.FC<Props> = ({
   textColor,
   bgColor,
 }) => {
+  const { cart } = useCart();
   return (
     <div className={`${!open && 'hidden'}`}>
       <div
-        className='md:hidden fixed top-0 right-0 h-full w-full bg-gray-500 bg-opacity-50 transition-all ease-linear duration-500'
+        className='md:hidden fixed top-0 right-0 h-full w-full bg-gray-500 bg-opacity-50 transition-all ease-linear duration-500 z-40'
         onClick={() => {
           setOpen(false);
         }}
       />
-      <div className='md:hidden fixed top-0 right-0 h-full w-3/4 xs:w-4/6 sm:w-1/2 bg-white shadow-2xl transition-all ease-linear duration-500'>
+      <div className='md:hidden fixed top-0 right-0 h-full w-3/4 xs:w-4/6 sm:w-1/2 bg-white shadow-2xl transition-all ease-linear duration-500 z-50'>
         <div className='flex p-3 bg-primary-100 items-center nav-bg'>
           <Link href='/'>
             <a>
@@ -90,6 +92,11 @@ const ShopMobileNav: React.FC<Props> = ({
                 <circle cx='20' cy='21' r='1'></circle>
                 <path d='M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6'></path>
               </svg>
+              {cart.length > 0 ? (
+                <sup className='bg-primary-300 py-1 px-2 rounded-full text-xs text-white'>
+                  {cart.length}
+                </sup>
+              ) : null}
             </NavItem>
             <NavItem link='login' extraClasses='bg-primary-400 color-white'>
               LOGIN

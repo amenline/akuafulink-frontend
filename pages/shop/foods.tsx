@@ -8,8 +8,25 @@ import {
   shopGrains,
   shopHerbs,
 } from '../../components/foodList';
+import Button from '../../components/Button';
 import { WholeFoods } from '../../Types/FoodProducts';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
+
+// export const MyButton = ({
+//   text,
+//   extraStyles,
+// }: {
+//   text: string;
+//   extraStyles?: string;
+// }) => {
+//   return (
+//     <a
+//       className={`border-2 p-2 rounded-lg border-primary-500 hover:border-primary-100 ${extraStyles}`}
+//     >
+//       <button>{text}</button>
+//     </a>
+//   );
+// };
 
 const Foods: React.FC<{}> = ({
   vegetables,
@@ -17,12 +34,29 @@ const Foods: React.FC<{}> = ({
   grains,
   herbs,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const [foods, setFoods] = useState<WholeFoods[] | []>([]);
+  const [currentCategory, setCurrentCategory] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState<WholeFoods[] | []>([]);
+
+  const handleClick = (value: string) => {
+    if (value == 'vegetables') {
+      setCategory(vegetables);
+      setCurrentCategory('vegetables');
+    } else if (value == 'fruits') {
+      setCategory(fruits);
+      setCurrentCategory('fruits');
+    } else if (value == 'herbs') {
+      setCategory(herbs);
+      setCurrentCategory('herbs');
+    } else {
+      setCategory(grains);
+      setCurrentCategory('grains');
+    }
+  };
 
   useEffect(() => {
-    setFoods(vegetables);
+    setCategory(vegetables);
+    setCurrentCategory('vegetables');
   }, [vegetables]);
 
   return (
@@ -32,26 +66,67 @@ const Foods: React.FC<{}> = ({
       </Head>
       <div className='grid md:grid-cols-3 gap-4 place-content-center p-10'>
         <div className='md:col-start-2 md:col-span-1'>
-          <div className='mb-4 relative'>
-            <input
-              className='input border border-gray-400 appearance-none rounded w-full px-3 py-3 pt-5 pb-2 focus focus:border-primary-900 focus:outline-none active:outline-none active:border-indigo-600'
-              id='search'
-              type='text'
-            />
-            <label
-              htmlFor='search'
-              className='label absolute mb-0 -mt-2 pt-4 pl-3 leading-tighter text-gray-400 text-base mt-2 cursor-text'
-            >
-              Search
-            </label>
+          <div className='flex justify-center'>
+            <div className='mb-4 relative'>
+              <input
+                className='input border border-gray-400 appearance-none rounded w-full px-3 py-3 pt-5 pb-2 focus focus:border-primary-900 focus:outline-none active:outline-none active:border-indigo-600'
+                id='search'
+                type='text'
+              />
+              <label
+                htmlFor='search'
+                className='label absolute mb-0 -mt-2 pt-4 pl-3 leading-tighter text-gray-400 text-base mt-2 cursor-text'
+              >
+                Search
+              </label>
+            </div>
+          </div>
+        </div>
+        <div className='md:col-start-2 md:col-span-1'>
+          <div className='flex justify-center'>
+            <div className='grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 place-content-center'>
+              <a
+                onClick={() => handleClick('vegetables')}
+                className={`border-2 p-2 rounded-lg border-primary-500 hover:border-primary-100 text-center hover:bg-gray-100 ${
+                  currentCategory == 'vegetables' ? 'bg-gray-200' : null
+                }`}
+              >
+                <button>Vegetables</button>
+              </a>
+              <a
+                onClick={() => handleClick('fruits')}
+                className={`border-2 p-2 rounded-lg border-primary-500 hover:border-primary-100 text-center hover:bg-gray-100 ${
+                  currentCategory == 'fruits' ? 'bg-gray-200' : null
+                }`}
+              >
+                <button>Fruits</button>
+              </a>
+              <a
+                onClick={() => handleClick('herbs')}
+                className={`border-2 p-2 rounded-lg border-primary-500 hover:border-primary-100 text-center hover:bg-gray-100 ${
+                  currentCategory == 'herbs' ? 'bg-gray-200' : null
+                }`}
+              >
+                <button>Herbs</button>
+              </a>
+              <a
+                onClick={() => handleClick('grains')}
+                className={`border-2 p-2 rounded-lg border-primary-500 hover:border-primary-100 text-center hover:bg-gray-100 ${
+                  currentCategory == 'grains' ? 'bg-gray-200' : null
+                }`}
+              >
+                <button>Grains</button>
+              </a>
+            </div>
           </div>
         </div>
       </div>
       <div className='grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 place-content-center p-10'>
-        {Foods.length > 0
-          ? foods.map((food, x) => (
+        {category.length > 0
+          ? category.map((food, x) => (
               <FoodCard
-                key={x}
+                key={food.id}
+                id={food.id}
                 name={food.name}
                 category={food.category}
                 quantity={food.quantity}

@@ -33,12 +33,12 @@ const MobileNav: React.FC<Props> = ({ open, setOpen, textColor, bgColor }) => {
   return (
     <div className={`${!open && 'hidden'}`}>
       <div
-        className='md:hidden fixed top-0 right-0 h-full w-full bg-gray-500 bg-opacity-50 transition-all ease-linear duration-500'
+        className='md:hidden fixed top-0 right-0 h-full w-full bg-gray-500 bg-opacity-50 transition-all ease-linear duration-500 z-40'
         onClick={() => {
           setOpen(false);
         }}
       />
-      <div className='md:hidden fixed top-0 right-0 h-full w-3/4 xs:w-4/6 sm:w-1/2 bg-white shadow-2xl transition-all ease-linear duration-500'>
+      <div className='md:hidden fixed top-0 right-0 h-full w-3/4 xs:w-4/6 sm:w-1/2 bg-white shadow-2xl transition-all ease-linear duration-500 z-50'>
         <div className='flex p-3 bg-primary-100 items-center nav-bg'>
           <Link href='/'>
             <a>
