@@ -8,7 +8,6 @@ import {
   shopGrains,
   shopHerbs,
 } from '../../components/foodList';
-import Button from '../../components/Button';
 import { WholeFoods } from '../../Types/FoodProducts';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 
@@ -35,7 +34,7 @@ const Foods: React.FC<{}> = ({
   herbs,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [currentCategory, setCurrentCategory] = useState('');
-  const [searchTerm, setSearchTerm] = useState('');
+  const [search, setSearch] = useState('');
   const [category, setCategory] = useState<WholeFoods[] | []>([]);
 
   const handleClick = (value: string) => {
