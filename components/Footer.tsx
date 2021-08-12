@@ -70,16 +70,16 @@ const Footer: React.FC = () => {
               Quick Links
             </h2>
             <nav className={`${styles.nav} text-sm`}>
-              <Link href='#'>
-                <a className='block py-1 hover:text-primary-400'>Wholesale</a>
+              <Link href='/shop/foods'>
+                <a className='block py-1 hover:text-primary-400'>Foods</a>
               </Link>
-              <Link href='#'>
+              <Link href='/shop/meal-box'>
                 <a className='block py-1 hover:text-primary-400'>City Market</a>
               </Link>
-              <Link href='#'>
+              <Link href='/contact'>
                 <a className='block py-1 hover:text-primary-400'>Contact Us</a>
               </Link>
-              <Link href='#'>
+              <Link href='/login?signup'>
                 <a className='block py-1 hover:text-primary-400'>Signup</a>
               </Link>
             </nav>
@@ -89,13 +89,13 @@ const Footer: React.FC = () => {
               Top Selling
             </h2>
             <nav className={`${styles.nav} text-sm`}>
-              <Link href='/'>
+              <Link href='/shop/foods?vegetables'>
                 <a className='block py-1 hover:text-primary-400'>Vegetables</a>
               </Link>
-              <Link href='/news'>
+              <Link href='/shop/foods?fruits'>
                 <a className='block py-1 hover:text-primary-400'>Fruits</a>
               </Link>
-              <Link href='/fixtures'>
+              <Link href='/shop/foods?grains'>
                 <a className='block py-1 hover:text-primary-400'>Grains</a>
               </Link>
             </nav>

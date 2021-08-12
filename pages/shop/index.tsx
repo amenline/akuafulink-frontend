@@ -39,7 +39,7 @@ const Shop = () => {
               </p>
             </div>
             <Button
-              link='shop/foods'
+              link='shop/meal-box'
               text='Shop a meal'
               secondary
               extraStyles='px-8 text-primary-800'

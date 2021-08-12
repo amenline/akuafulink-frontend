@@ -1,4 +1,4 @@
-import ShopFooter from './ShopFooter';
+import Footer from './Footer';
 import Head from 'next/head';
 import ShopNavbar from './ShopNavbar';
 
@@ -8,9 +8,11 @@ export const siteTitle = 'AkuafuLink';
 const ShopLayout = ({
   children,
   home,
+  back,
 }: {
   children: React.ReactNode;
   home?: boolean;
+  back?: boolean;
 }) => {
   return (
     <div>
@@ -104,11 +106,9 @@ const ShopLayout = ({
         <meta name='og:title' content={siteTitle} />
         <meta name='twitter:card' content='summary_large_image' />
       </Head>
-      <header>
-        <ShopNavbar />
-      </header>
+      <header>{back ? <ShopNavbar back /> : <ShopNavbar />}</header>
       <main>{children}</main>
-      <ShopFooter />
+      <Footer />
     </div>
   );
 };

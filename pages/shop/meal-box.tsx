@@ -6,7 +6,7 @@ import Button from '../../components/Button';
 
 const MealBox = () => {
   return (
-    <ShopLayout>
+    <ShopLayout back>
       <Head>
         <title>Meal Box - AkuafuLink</title>
       </Head>

@@ -33,7 +33,11 @@ export const NavItem: React.FC<Props> = ({
   );
 };
 
-const ShopNavbar: React.FC = () => {
+type MainProps = {
+  back?: boolean;
+};
+
+const ShopNavbar: React.FC<MainProps> = ({ back }) => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const [textColor, setTextColor] = useState('#000');
   const [navBgColor, setNavBgColor] = useState('#eae7e7');
@@ -83,6 +87,30 @@ const ShopNavbar: React.FC = () => {
             />
           </svg>
           <ul className='myul hidden md:flex m-1 text-sm'>
+            {back ? (
+              <NavItem
+                link='shop'
+                textColor={textColor}
+                extraClasses={'border border-primary-100'}
+              >
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  width='16'
+                  viewBox='0 0 24 24'
+                  fill='none'
+                  stroke='#000'
+                  strokeWidth='2'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  className='feather feather-arrow-left inline'
+                >
+                  <line x1='19' y1='12' x2='5' y2='12'></line>
+                  <polyline points='12 19 5 12 12 5'></polyline>
+                </svg>
+                SHOP
+              </NavItem>
+            ) : null}
+
             <NavItem link='products' textColor={textColor}>
               PRODUCTS
             </NavItem>

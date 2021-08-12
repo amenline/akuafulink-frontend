@@ -60,7 +60,7 @@ const Foods: React.FC<{}> = ({
   }, [vegetables]);
 
   return (
-    <ShopLayout>
+    <ShopLayout back>
       <Head>
         <title>Foods - AkuafuLink</title>
       </Head>
@@ -75,7 +75,7 @@ const Foods: React.FC<{}> = ({
               />
               <label
                 htmlFor='search'
-                className='label absolute mb-0 -mt-2 pt-4 pl-3 leading-tighter text-gray-400 text-base mt-2 cursor-text'
+                className='label absolute mb-0 -mt-2 pt-4 pl-3 leading-tighter text-gray-400 text-xs cursor-text'
               >
                 Search
               </label>
